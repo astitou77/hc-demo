@@ -6,12 +6,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Maven Building package.....'
+		sh 'mvn clean package'
             }
         }
         
         stage('Deploy') {
             steps {
                 echo 'Deploying to tomcat....'
+		sh 'curl --upload-file ./target/demo.war --user tomcat:l84w0rk "http://3.97.240.138:8089/manager/text/deploy?path=/demo&update=true"'
             }
         }
         
