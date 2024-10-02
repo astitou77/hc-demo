@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Build') {
+            steps {
+                echo 'Maven Building package.....'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to tomcat....'
+            }
+        }
+        
+        stage('Artifactory') {
+            steps {
+                echo 'Store new version artifact....'
+            }
+        }
+        
+    }
+
+    
+}
+
